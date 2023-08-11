@@ -5,7 +5,7 @@ The following code will help you join Excel data to file geodatabase polygon lay
 
 ## Setup Code
 
-'''python
+```python
 import arcpy, os, traceback
 from arcgis.gis import GIS
 from arcgis.features import FeatureLayerCollection
@@ -32,7 +32,7 @@ outSalesParcels = os.path.join(finalGDB, "TaxParcelSales")
 
 arcpy.env.overwriteOutput = True
 arcpy.env.qualifiedFieldNames = False
-'''
+```
 
 # Functions
 
@@ -44,7 +44,7 @@ GETSUMMAP - generates a field map that summarizes input values
 INPORTOBJECTS - imports parcels and excel data to working GDB
 UPDATEAGOL - overwrites the parcel service with compiled data in a zipped file geodatabase
 
-'''python
+```python
 def zipdir(path, ziph):
     for root, dirs, files in os.walk(path):
         for file in files:
@@ -146,14 +146,14 @@ def UpdateAGOL(zippedGDB):
     targetService = gis.content.get('32666ae591f04e6789f35e227388628e')
     layerColl = FeatureLayerCollection.fromitem(targetService)
     layerColl.manager.overwrite(zippedGDB)
-'''
+```
 
 ##  Main Processing Block
 
 This section joins the parcels together with the imported cama data, appends to a template geodatabase table and then uploads to ArcGIS Online. 
 Keep in mind, the import of Excel data into a geodatabase can produce unpredictable results.  ArcGIS geoprocessing tools will interpret field types from data it sees in the first several rows, so it can easily misinterpret a text column for a numeric and vice versa. 
 
-'''python
+```python
 try:
     
     importObjects()
@@ -230,4 +230,4 @@ except Exception as ex:
 
 print ("Finished!")
 logging.info("{} Finished! ".format(str(datetime.datetime.now())))
-'''
+```
