@@ -13,7 +13,7 @@ If the layer needs to be used in ArcGIS Online, one option here could be an item
 You can also make this code a view instead of a stored procedure updating a static table.  However, parcel data can be large, and the performance may not be ideal.  
 
 ```sql
-truncate table dataowner.CC_Parcel_CAMA
+truncate table dataowner.Parcel_CAMA
 
 insert into dataowner.Parcel_CAMA (ObjectID, PARCELID,ASSESSORNUM
 	, BUILDING, UNIT, STATEDAREA, CVTTXCD, CVTTXDSCRP, SCHLDSCRP, SCHLTXCD, USEDC
@@ -28,7 +28,7 @@ select ObjectID = cast(row_number() over(order by b.ParcelID) as int),
 ,b.PRPRTYDSCRP,b.CNVYNAME,b.OWNERNME1,b.OWNERNME2,b.RESYRBLT,b.LNDVALUE,b.BLDGVALUE,b.TOTALVALUE
 ,b.RECORDDT,b.TRANSDT,b.GRANTOR,b.GRANTEE,b.SALEAMNT, 
 a.shape, NULL
---into #temp
+--into dataowner.Parcel_CAMA
 from dataowner.TaxParcels a
 	left outer join dataowner.CAMATable b on a.ASSESSOR_NUM=b.assessornum
 ```
