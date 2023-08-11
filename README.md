@@ -11,9 +11,9 @@ There are many ways to do this, and there are considerations that need to be mad
 
 There are many methods, most of them involving some sort of custom automation.   Each one somewhat depends on the system and how available the CAMA data is.  In the case of Python, there are a few different ways to handle it. I'll illustrate three common methods in the pages on this repository.
 
-  1. Python File Geodatabase transfer
-  2. Python feature set update
-  3. SQL view published to Enterprise
+  1. [Python File Geodatabase transfer](FileGDB_Overwrite.md)
+  2. [Python truncate and append](Append_FS.md)
+  3. [SQL view published to Enterprise](ReferencedSQLTable.md)
 
 ## CAMA data preparation
 
