@@ -1,4 +1,4 @@
-## Notebook Code
+## Truncate and Append Feature Service
 
 This code takes a slightly different angle than the file Geodatabase overwrite.  Though the python scripts can have a combination of methods.  
 For instance you could compile the file based (shapefile/excel) data into the final file geodatabase and truncate and append the data instead of upload the file geodatabase and overwrite the service. 
@@ -9,6 +9,9 @@ This script...
 2. Creates a database query joining them together
 3. Exports the data to a new layer
 4. Uses the delete and append tools in ArcGIS
+
+Caveat:
+The query layer here assumes a one to one join with the CAMA table.  If there is a one to many join [review this support document](https://support.esri.com/en-us/knowledge-base/how-to-use-manytomany-joins-via-a-query-layer-000012705) when constructing.  When the query is created, copying to a new feature class should be done to ensure a unique ObjectID. 
 
 ## Set up code
 
